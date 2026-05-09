@@ -1,7 +1,7 @@
 import { useDidUpdate } from '@/shared/lib/use-update-effect';
 import clsx from 'clsx';
 import { FC, useState } from 'react';
-import { AiOutlineDislike, AiOutlineDown, AiOutlineLike, AiOutlineUp, AiOutlineComment, AiOutlineShareAlt } from 'react-icons/ai';
+import { AiOutlineDislike, AiOutlineDown, AiOutlineLike, AiOutlineUp, AiOutlineShareAlt } from 'react-icons/ai';
 import { useVote } from '../utils/use-vote';
 import { Button } from './button';
 import { NavBack } from './nav-back';
@@ -17,11 +17,16 @@ interface SwiperPanelProps {
 export const SwiperPanel: FC<SwiperPanelProps> = ({ scrollTo, videoId }) => {
   const { vote, videoId: currentVideoId } = useVote();
   const [status, setStatus] = useState<'like' | 'dislike' | 'null'>('null');
-  const [commentsOpen, setCommentsOpen] = useState(false);
 
   useDidUpdate(() => {
     setStatus('null');
   }, [currentVideoId]);
+
+  const handleShare = () => {
+    if (videoId) {
+      navigator.clipboard.writeText(`${window.location.origin}/feed/${videoId}`);
+    }
+  };
 
   return (
     <>
@@ -57,14 +62,7 @@ export const SwiperPanel: FC<SwiperPanelProps> = ({ scrollTo, videoId }) => {
           className={clsx({ '!bg-black !text-white': status === 'dislike' })}>
           <AiOutlineDislike />
         </Button>
-        <Button onClick={() => setCommentsOpen(true)}>
-          <AiOutlineComment />
-        </Button>
-        <Button onClick={() => {
-          if (videoId) {
-            navigator.clipboard.writeText(`${window.location.origin}/feed/${videoId}`);
-          }
-        }}>
+        <Button onClick={handleShare}>
           <AiOutlineShareAlt />
         </Button>
       </div>

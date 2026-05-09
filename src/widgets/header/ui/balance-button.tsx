@@ -17,7 +17,7 @@ export const BalanceButton = observer(({ ssrAuth }: { ssrAuth: boolean }) => {
     if (isAuth) {
       refreshWalletData();
     }
-  }, [isAuth]);
+  }, [isAuth, refreshWalletData]);
   
   if ((!isHydrated && !ssrAuth) || (isHydrated && !isAuth)) {
     return null;
@@ -36,4 +36,4 @@ export const BalanceButton = observer(({ ssrAuth }: { ssrAuth: boolean }) => {
       </span>
     </Button>
   );
-}); 
+});
