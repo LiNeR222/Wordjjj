@@ -1,0 +1,10 @@
+.content {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* чтобы избежать скрола вниз страницы при показе модалки */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}

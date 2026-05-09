@@ -1,0 +1,119 @@
+include:
+- project: 'video.chatting.ru/video.chatting.frontend'
+  ref: 'main'
+  file: '/.gitlab-ci-template.yml'
+
+- project: devops/ci-templates
+  file:
+    - ci/lint.yml
+    # - ci/audit.yml
+    - ci/deploy.yml
+
+####
+
+build-frontend-job:
+  stage: build
+  image: public.ecr.aws/docker/library/docker:latest
+  script:
+  - df -h
+  - docker image prune -af # временный вызов
+  - df -h
+  - docker build -t frontend-app-image .
+  tags:
+  - chatting
+
+
+deploy-frontend-job:
+  stage: deploy
+  image: public.ecr.aws/docker/library/docker:latest
+  environment: production
+  needs: [build-frontend-job]
+  script:
+  - docker compose -f docker-compose.prod.yaml up -d
+  tags:
+  - chatting
+
+####
+
+# lint-kubernetes:
+#   extends: .eslint
+#   image: public.ecr.aws/docker/library/node:23-alpine
+#   before_script:
+#     - yarn install --frozen-lockfile
+
+# audit:
+#   extends: .audit
+#   allow_failure: true
+#   needs: []
+# 
+# audit-high:
+#   extends: .audit-high
+#   allow_failure: true
+#   needs: []
+# 
+# audit-critical:
+#   extends: .audit-critical
+#   allow_failure: true
+#   needs: []
+
+# lint:
+#   extends: .eslint
+#   allow_failure: true
+
+bake-kubernetes:
+  extends: .bake
+
+deploy-kubernetes:
+  extends: .deploy
+  needs: [bake-kubernetes]
+  variables:
+    KUBERNETES_NAMESPACE: video-chatting
+    KUBERNETES_DEPLOYMENT: frontend
+
+deploy-kubernetes:
+  extends: .deploy
+  needs: [bake-kubernetes]
+  variables:
+    KUBERNETES_NAMESPACE: video-chatting
+    KUBERNETES_DEPLOYMENT: frontend
+
+# collect-audit:
+#   stage: audit
+#   image: node:23-alpine
+#   tags:
+#     - kubernetes-audit
+#   needs: []
+#   script:
+#     - curl -fsSL "http://audit-collector.devops.svc.cluster.local/scripts/npm.sh" | sh
+# Filesystem-only Trivy scan with GitLab Code Quality report.
+# https://trivy.dev/docs/latest/tutorials/integrations/gitlab-ci/
+
+# trivy-filesystem-codequality:
+#   stage: audit
+#   image:
+#     name: docker.io/aquasec/trivy:latest
+#     entrypoint: [""]
+#   tags:
+#     - kubernetes-audit
+#   needs: []
+#   allow_failure: true
+# 
+#   variables:
+#     TRIVY_NO_PROGRESS: "true"
+#     TRIVY_CACHE_DIR: ".trivycache/"
+# 
+#   script:
+#     - trivy --version
+#     - time trivy fs --download-db-only
+#     - time trivy fs .
+# 
+#   cache:
+#     paths:
+#       - .trivycache/
+# 
+#   artifacts:
+#     when: always
+#     paths:
+#       - gl-codeclimate.json
+#     reports:
+#       codequality: gl-codeclimate.json

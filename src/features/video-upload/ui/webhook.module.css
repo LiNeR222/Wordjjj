@@ -1,0 +1,150 @@
+.webhookInputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.webhookInput {
+  width: 100%;
+  padding-left: 130px !important;
+}
+
+.webhookInputSimple {
+  width: 100%;
+}
+
+.inlineSelect {
+  width: auto !important;
+  min-width: 120px;
+  background-color: #f0f0f0 !important;
+  border-radius: 4px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.inlineSelect:global(.ant-select) :global(.ant-select-selector) {
+  padding: 2px 8px !important;
+  height: 28px !important;
+}
+
+.triggerBadge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  background-color: #f0f0f0;
+  border-right: 1px solid #d9d9d9;
+  border-radius: 6px 0 0 6px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 1;
+  color: #000;
+  min-width: 120px;
+  transition: background-color 0.2s;
+}
+
+.triggerBadge:hover {
+  background-color: #e6e6e6;
+}
+
+.triggerDropdown {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 400px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.dropdownHeader {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdownHeader h4 {
+  margin: 0;
+  color: #000;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.triggerOptions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 12px;
+}
+
+.triggerOption {
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background-color: #f9f9f9;
+  border: 1px solid transparent;
+}
+
+.triggerOption:hover {
+  background-color: #f0f0f0;
+}
+
+.triggerOption.selected {
+  background-color: #f0f0f0;
+  border-color: #000;
+}
+
+.triggerOption h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+
+.triggerOption p {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .triggerDropdown {
+    width: 95vw;
+    max-width: 400px;
+  }
+  
+  .triggerOptions {
+    grid-template-columns: 1fr;
+  }
+  
+  .triggerOption {
+    padding: 10px;
+  }
+  
+  .triggerOption h4 {
+    font-size: 14px;
+  }
+  
+  .triggerOption p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .triggerDropdown {
+    width: 95vw;
+    max-width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .dropdownHeader {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+  }
+} 

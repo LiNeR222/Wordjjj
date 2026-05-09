@@ -1,0 +1,17 @@
+x-settings:
+  image_versions:
+    FRONTEND: &frontend frontend-app-image:latest 
+ 
+    
+services:
+  frontend:
+    image: *frontend
+    container_name: frontend
+    mem_limit: 2g 
+    ports:
+      - "3030:3000"
+    
+    environment:
+      - NODE_ENV=production
+    restart: always
+

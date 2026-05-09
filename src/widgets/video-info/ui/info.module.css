@@ -1,0 +1,58 @@
+.wrapper {
+  padding: 24px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+
+@media (max-width: 639px) {
+  .title {
+    font-size: 24px!important;
+  }
+}
+
+.title {
+  letter-spacing: -1.2px;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.views {
+  margin: 0px;
+  padding-top: 12px;
+  font-size: 14px;
+  color: var(--color-grey-text);
+}
+
+.actions {
+  padding: 16px 0;
+}
+
+.tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-top: 16px;
+  font-size: 14px;
+  color: var(--color-grey-text);
+}
+.tags:empty {
+  display: none;
+}
+.categories {
+  padding-top: 16px;
+}
+.categories__title {
+  letter-spacing: -0.4px;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0;
+}
+
+.categories__list {
+  padding-top: 8px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

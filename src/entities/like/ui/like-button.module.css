@@ -1,0 +1,130 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  padding: 8px 12px;
+  color: #111827;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    background-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    color 220ms ease;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.38) 50%, transparent 80%);
+  opacity: 0;
+  transform: translateX(-120%);
+}
+
+.button:hover {
+  background: rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+.button:hover::before {
+  opacity: 1;
+  transition:
+    opacity 180ms ease,
+    transform 420ms ease;
+  transform: translateX(120%);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.icon {
+  transition:
+    transform 240ms ease,
+    filter 240ms ease,
+    color 220ms ease;
+}
+
+.count {
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition:
+    transform 240ms ease,
+    color 220ms ease;
+}
+
+.button:hover .icon {
+  transform: scale(1.08);
+}
+
+.activeLike {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(37, 99, 235, 0.08));
+  color: #1d4ed8;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.14);
+}
+
+.activeDislike {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(251, 113, 133, 0.08));
+  color: #e11d48;
+  box-shadow: 0 10px 24px rgba(244, 63, 94, 0.14);
+}
+
+.pressed {
+  animation: button-pop 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pressed .icon {
+  animation: icon-burst 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pressed .count {
+  animation: count-burst 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes button-pop {
+  0% {
+    transform: scale(0.96);
+  }
+
+  45% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes icon-burst {
+  0% {
+    transform: scale(0.92);
+  }
+
+  45% {
+    transform: scale(1.2) rotate(-8deg);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes count-burst {
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

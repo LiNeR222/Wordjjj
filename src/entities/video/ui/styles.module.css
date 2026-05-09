@@ -1,0 +1,9 @@
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Количество строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  word-break: break-all;
+}

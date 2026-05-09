@@ -1,0 +1,17 @@
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Количество строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  word-break: break-all;
+}
+
+.feed-modal :global(.ant-modal-content) {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  border: none;
+}

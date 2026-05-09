@@ -1,0 +1,67 @@
+.wrapper {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #80808060;
+  cursor: pointer;
+}
+
+.progress span {
+  display: block;
+  background-color: white;
+  height: 6px;
+}
+
+.actions {
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  left: 16px;
+  display: none;
+}
+.actions button {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff50;
+  cursor: pointer;
+}
+
+.wrapper:hover .actions {
+  display: block;
+}
+
+.info {
+  position: absolute;
+  bottom: 24px;
+  left: 16px;
+  padding-right: 16px;
+  color: white;
+}
+.info .author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.author button {
+  color: white;
+  border-color: white;
+}
+.info__description {
+  color: var(--color-light-grey);
+  font-size: 14px;
+}

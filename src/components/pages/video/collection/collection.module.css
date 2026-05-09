@@ -1,0 +1,36 @@
+.wrapper {
+  padding: 24px;
+  background-color: white;
+  border-radius: 12px;
+  border-top-left-radius: 0;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.4px;
+}
+
+.list {
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.autoplay {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.autoplay span {
+  font-size: 14px;
+}

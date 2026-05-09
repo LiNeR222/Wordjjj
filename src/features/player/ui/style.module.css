@@ -1,0 +1,70 @@
+.player-wrapper {
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.player-wrapper vm-player {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+  border-radius: inherit;
+}
+
+.player-wrapper :global(video) {
+  border-radius: inherit;
+}
+
+.fullscreen {
+  background-color: black;
+  max-height: 100dvh;
+  overflow: hidden;
+  display: block;
+}
+
+.fullscreen vm-player[video] {
+  --vm-tooltip-spacing: 18px;
+  display: block;
+  max-height: 100dvh !important;
+}
+
+.fullscreen vm-ui > * {
+  max-height: 100dvh;
+}
+
+.player-wrapper :global(vm-player:fullscreen),
+.player-wrapper :global(video:fullscreen) {
+  animation: fullscreen-enter 220ms ease;
+  background: black;
+}
+
+.player-wrapper :global(vm-player:fullscreen vm-ui > *) {
+  animation: fullscreen-controls-fade 260ms ease;
+}
+
+@keyframes fullscreen-enter {
+  0% {
+    opacity: 0.82;
+    transform: scale(0.972);
+    filter: saturate(0.92);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: saturate(1);
+  }
+}
+
+@keyframes fullscreen-controls-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

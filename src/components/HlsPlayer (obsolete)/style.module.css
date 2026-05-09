@@ -1,0 +1,135 @@
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  padding: 10px;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.controlBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+}
+.controlBtn:hover {
+  background-color: rgba(255, 255, 255, 0.377);
+  border-radius: 8px;
+}
+.progressBar {
+  width: 100%;
+  cursor: pointer;
+}
+
+.time {
+  color: white;
+  font-size: 16px;
+}
+
+.fullscreen .video-container {
+  width: 100vw;
+  height: 100vh;
+}
+/* Общие стили для ползунка */
+.progressBar,
+.volumeSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: #888888; /* Цвет после ползунка */
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.volumeSlider {
+  width: 80px;
+  height: 4px;
+  transition:
+    width 0.3s ease,
+    opacity 0.3s ease;
+}
+.volumeSlider:hover {
+  height: 5px;
+  box-shadow: 0px 0px 30px 0.5px #fff;
+}
+/* Цвет до ползунка */
+.progressBar::-webkit-slider-runnable-track,
+.volumeSlider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  background: #888; /* Цвет до ползунка */
+  border-radius: 5px;
+}
+
+/* Ползунок (thumb) */
+.progressBar::-webkit-slider-thumb,
+.volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  box-shadow: -100vw 0 0 100vw #fff; /* Заливка до ползунка */
+}
+
+/* Firefox */
+.progressBar::-moz-range-progress,
+.volumeSlider::-moz-range-progress {
+  background-color: #888; /* Цвет до ползунка */
+}
+
+.progressBar::-moz-range-track,
+.volumeSlider::-moz-range-track {
+  background-color: #888888; /* Цвет после ползунка */
+}
+
+/* IE */
+.progressBar::-ms-fill-lower,
+.volumeSlider::-ms-fill-lower {
+  background-color: #fff;
+}
+
+.progressBar::-ms-fill-upper,
+.volumeSlider::-ms-fill-upper {
+  background-color: #888888;
+}
+.volumeSlider.visible {
+  width: 80px; /* Ширина при появлении (можно изменить на 100%) */
+  opacity: 1; /* Показываем при наведении */
+}
+
+.volumeSlider.hidden {
+  width: 0; /* Скрываем при отсутствии наведения */
+  opacity: 0; /* Скрываем при отсутствии наведения */
+}
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader .spin {
+  zoom: 1.2;
+}
+.loader .spin i {
+  background: white;
+}

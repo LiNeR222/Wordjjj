@@ -1,0 +1,7 @@
+.filterModal .ant-modal-content {
+  border-radius: 24px !important;
+}
+
+.filterModal .ant-btn-color-primary {
+  box-shadow: none !important;
+}

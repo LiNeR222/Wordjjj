@@ -1,0 +1,46 @@
+.button {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 150ms ease;
+}
+.button:hover {
+  opacity: 0.8;
+}
+.button:active {
+  transform: scale(0.95);
+}
+.default {
+  border: 1px solid var(--color-quaternary);
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.icon {
+  padding: 4px;
+  height: auto;
+  border-radius: 6px;
+}
+.icon:hover {
+  background-color: var(--color-light-grey);
+}
+
+.small {
+  height: 24px;
+  padding: 0 8px;
+  font-size: 12px;
+  border-radius: 8px;
+}

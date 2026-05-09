@@ -1,0 +1,23 @@
+.wrapper {
+  padding: 24px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.4px;
+}
+
+.list {
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.write {
+  padding-top: 24px;
+}

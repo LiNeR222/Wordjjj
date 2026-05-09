@@ -1,0 +1,15 @@
+.custom-modal .ant-modal-content {
+  padding: 0 !important;
+}
+
+.custom-modal .ant-upload-list-item-container,
+.custom-modal .ant-upload-select {
+  width: 10rem !important;
+  height: 10rem !important;
+}
+
+@media (max-width: 768px) {
+  .custom-modal {
+    width: 100vw !important;
+  }
+}

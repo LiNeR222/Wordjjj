@@ -1,0 +1,77 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.textarea {
+  min-height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff, #fcfdff);
+  transition:
+    height 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease,
+    transform 220ms ease;
+}
+
+.textarea:hover {
+  border-color: rgba(37, 99, 235, 0.18);
+  background: #ffffff;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.42);
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.12),
+    0 14px 34px rgba(59, 130, 246, 0.08);
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+  pointer-events: none;
+}
+
+.actionsVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.submitButton {
+  min-width: 132px;
+  justify-content: center;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    opacity 220ms ease,
+    background-color 220ms ease;
+}
+
+.submitButton:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.22);
+}
+
+.submitButton:active {
+  transform: scale(0.98);
+}

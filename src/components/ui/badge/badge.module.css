@@ -1,0 +1,38 @@
+.badge {
+  height: 20px;
+  padding: 0 10px;
+  font-size: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  cursor: pointer;
+}
+
+.badge.large {
+  height: 32px;
+  line-height: 32px;
+  padding: 0 12px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.default {
+  background-color: var(--color-light-grey);
+}
+
+.green {
+  background-color: rgb(214, 245, 214) !important;
+  color: rgb(22, 79, 22) !important;
+}
+
+.blue {
+  background-color: rgb(211, 211, 255) !important;
+  color: rgb(26, 26, 108) !important;
+}
+
+.yellow {
+  background-color: rgb(241, 241, 185) !important;
+  color: rgb(70, 70, 6) !important;
+}

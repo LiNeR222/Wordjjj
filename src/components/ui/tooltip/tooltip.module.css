@@ -1,0 +1,55 @@
+.Button {
+  background-color: inherit;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+}
+
+.Popup {
+  box-sizing: border-box;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background-color: canvas;
+  transition: transform 150ms, opacity 150ms;
+  outline: 1px solid var(--color-light-grey);
+}
+.Popup[data-starting-style],
+.Popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.Popup[data-instant] {
+  transition-duration: 0ms;
+}
+.Arrow {
+  display: flex;
+}
+.Arrow[data-side="top"] {
+  bottom: -8px;
+  rotate: 180deg;
+}
+.Arrow[data-side="bottom"] {
+  top: -8px;
+  rotate: 0deg;
+}
+.Arrow[data-side="left"] {
+  right: -13px;
+  rotate: 90deg;
+}
+.Arrow[data-side="right"] {
+  left: -13px;
+  rotate: -90deg;
+}
+
+.ArrowFill {
+  fill: canvas;
+}
+
+.ArrowOuterStroke {
+  fill: var(--color-light-grey);
+}

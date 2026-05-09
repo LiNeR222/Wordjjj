@@ -1,0 +1,23 @@
+.menuContent {
+  outline: 0;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0 4px;
+}
+
+.sign-in {
+  padding-inline: 12px;
+}
+
+@media (max-width: 639px) {
+  .sign-in span {
+    display: none;
+  }
+}

@@ -1,0 +1,1 @@
+export { BalanceDepositModal } from '@/features/balance-deposit-modal/balance-deposit-modal'; 

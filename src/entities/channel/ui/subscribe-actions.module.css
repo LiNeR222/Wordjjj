@@ -1,0 +1,92 @@
+.subscribeButton,
+.subscribedButton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px !important;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease;
+}
+
+.subscribeButton::before,
+.subscribedButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 10%, rgba(255, 255, 255, 0.4) 45%, transparent 80%);
+  opacity: 0;
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+
+.subscribeButton {
+  border: none !important;
+  background: linear-gradient(135deg, #111111, #000000) !important;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+}
+
+.subscribeButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.22);
+}
+
+.subscribeButton:hover::before,
+.subscribedButton:hover::before {
+  opacity: 1;
+  transition:
+    opacity 180ms ease,
+    transform 450ms ease;
+  transform: translateX(130%);
+}
+
+.subscribedButton {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
+}
+
+.subscribedButton:hover {
+  transform: translateY(-1px);
+  border-color: rgba(15, 23, 42, 0.16) !important;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
+}
+
+.pressed {
+  animation: subscribe-press 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pressed::after {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  animation: subscribe-ring 520ms ease-out;
+}
+
+@keyframes subscribe-press {
+  0% {
+    transform: scale(0.95);
+  }
+
+  45% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes subscribe-ring {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.88);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}

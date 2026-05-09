@@ -1,0 +1,15 @@
+.avatar {
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: radial-gradient(
+    162.5% 162.5% at 54.46% -42.86%,
+    #5887ff 16.15%,
+    #ffa0fb 72.4%
+  );
+  color: white;
+  font-weight: 500;
+  flex-shrink: 0;
+}
